@@ -15,4 +15,27 @@
   </mat-toolbar>
 </p>
 
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Add new note</h1>
+      <form class="mb-5">
+        <mat-form-field class="d-block" appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field class="d-block" appearance="fill">
+          <mat-label>Description</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Add</button>
+      </form>
+
+      <ul>
+        <li *ngFor="let note of notes">{{ note.title }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
