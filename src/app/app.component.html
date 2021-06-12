@@ -6,9 +6,9 @@
     <mat-icon>note</mat-icon>
     <span class="ms-1">Note App</span>
     <span class="navbar-spacer"></span>
-    <button mat-button>
+    <!-- <button mat-button>
       <mat-icon>add</mat-icon>
-    </button>
+    </button> -->
     <!-- <button mat-icon-button>
       <mat-icon>share</mat-icon>
     </button> -->
@@ -22,18 +22,33 @@
       <form class="mb-5">
         <mat-form-field class="d-block" appearance="fill">
           <mat-label>Title</mat-label>
-          <input matInput />
+          <input matInput #titleInput autocomplete="off" />
         </mat-form-field>
         <mat-form-field class="d-block" appearance="fill">
           <mat-label>Description</mat-label>
-          <textarea matInput></textarea>
+          <textarea matInput #descriptionInput autocomplete="off"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="primary">Add</button>
+        <button (click)="addNote()" mat-raised-button color="primary">
+          Add
+        </button>
       </form>
+    </div>
 
-      <ul>
-        <li *ngFor="let note of notes">{{ note.title }}</li>
-      </ul>
+    <div class="col-sm-6">
+      <mat-card *ngFor="let note of notes" class="my-3">
+        <mat-card-title>{{ note.title }}</mat-card-title>
+        <mat-card-subtitle>
+          {{ note.creationDate.toLocaleDateString("en-US") }}
+        </mat-card-subtitle>
+        <mat-card-content>
+          {{ note.description }}
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="deleteNote(note.id)" mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>
