@@ -1,0 +1,14 @@
+<mat-card class="my-3">
+  <mat-card-title>{{ note.title }}</mat-card-title>
+  <mat-card-subtitle>
+    {{ note.creationDate.toLocaleDateString("en-US") }}
+  </mat-card-subtitle>
+  <mat-card-content>
+    {{ note.description }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="deleteNote(note)" mat-icon-button color="warn">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

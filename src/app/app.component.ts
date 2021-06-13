@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NotesService } from './notes.service';
 import { Note } from './shared/models/note.model';
 
 @Component({
@@ -6,15 +7,22 @@ import { Note } from './shared/models/note.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   @ViewChild('titleInput') titleInputRef: ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef: ElementRef;
 
   title = 'angular-note-app';
 
-  notes: Note[] = [new Note(1, 'Test', 'Test', new Date())];
+  notes: Note[];
 
-  constructor() {}
+  constructor(private notesService: NotesService) {}
+
+  ngOnInit() {
+    this.notes = this.notesService.getNotes();
+    this.notesService.notesChanged.subscribe(
+      (notes: Note[]) => (this.notes = notes)
+    );
+  }
 
   addNote() {
     let title = this.titleInputRef.nativeElement.value;
@@ -29,14 +37,12 @@ export class AppComponent {
       new Date()
     );
 
-    this.notes.push(note);
+    this.notesService.addNote(note);
     this.titleInputRef.nativeElement.value = '';
     this.descriptionInputRef.nativeElement.value = '';
   }
 
-  deleteNote(id: number) {
-    let notes = [...this.notes];
-    let updatedNotes = notes.filter((note) => note.id !== id);
-    this.notes = updatedNotes;
+  deleteNote(note: Note) {
+    this.notesService.deleteNote(note);
   }
 }

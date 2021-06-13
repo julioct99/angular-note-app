@@ -37,9 +37,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
