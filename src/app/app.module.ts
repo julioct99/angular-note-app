@@ -38,9 +38,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { CardComponent } from './card/card.component';
+import { NoteBoardComponent } from './note-board/note-board.component';
+import { NewNoteComponent } from './new-note/new-note.component';
 
 @NgModule({
-  declarations: [AppComponent, CardComponent],
+  declarations: [AppComponent, CardComponent, NoteBoardComponent, NewNoteComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

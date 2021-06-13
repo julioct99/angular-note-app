@@ -1,0 +1,14 @@
+<div>
+  <h1>Add new note</h1>
+  <form class="mb-5">
+    <mat-form-field class="d-block" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput #titleInput autocomplete="off" />
+    </mat-form-field>
+    <mat-form-field class="d-block" appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput #descriptionInput autocomplete="off"></textarea>
+    </mat-form-field>
+    <button (click)="addNote()" mat-raised-button color="primary">Add</button>
+  </form>
+</div>
