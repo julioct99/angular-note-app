@@ -1,20 +1,14 @@
 <p>
   <mat-toolbar color="primary" class="ps-4">
-    <mat-icon>note</mat-icon>
-    <span class="ms-1">Note App</span>
+    <mat-icon routerLink="/" style="cursor: pointer">note</mat-icon>
+    <span routerLink="/" class="ms-1" style="cursor: pointer">Note App</span>
+
     <span class="navbar-spacer"></span>
-    <!-- <button mat-button>
-      <mat-icon>add</mat-icon>
-    </button> -->
+
+    <button mat-button>
+      <mat-icon routerLink="/new">add</mat-icon>
+    </button>
   </mat-toolbar>
 </p>
-
-<div class="container mt-5">
-  <div class="row">
-    <app-new-note class="col-sm-3"></app-new-note>
-
-    <app-note-board class="col-sm-9"></app-note-board>
-  </div>
-</div>
 
 <router-outlet></router-outlet>

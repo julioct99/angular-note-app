@@ -1,5 +1,6 @@
-<div>
-  <mat-grid-list cols="3" rowHeight="2:2">
+<div class="container mt-5">
+  <button routerLink="/new" mat-raised-button color="primary">Add note</button>
+  <mat-grid-list cols="4">
     <mat-grid-tile *ngFor="let note of notes">
       <app-card [note]="note"></app-card>
     </mat-grid-tile>

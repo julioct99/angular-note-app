@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotesService } from '../notes.service';
 import { Note } from '../shared/models/note.model';
 
@@ -11,7 +12,7 @@ export class NewNoteComponent {
   @ViewChild('titleInput') titleInputRef: ElementRef;
   @ViewChild('descriptionInput') descriptionInputRef: ElementRef;
 
-  constructor(private notesService: NotesService) {}
+  constructor(private notesService: NotesService, private router: Router) {}
 
   addNote() {
     let title = this.titleInputRef.nativeElement.value;
@@ -27,7 +28,6 @@ export class NewNoteComponent {
     );
 
     this.notesService.addNote(note);
-    this.titleInputRef.nativeElement.value = '';
-    this.descriptionInputRef.nativeElement.value = '';
+    this.router.navigate(['/']);
   }
 }

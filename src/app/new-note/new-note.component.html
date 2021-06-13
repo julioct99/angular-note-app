@@ -1,4 +1,4 @@
-<div>
+<div class="container mt-5">
   <h1>Add new note</h1>
   <form class="mb-5">
     <mat-form-field class="d-block" appearance="fill">
@@ -10,5 +10,8 @@
       <textarea matInput #descriptionInput autocomplete="off"></textarea>
     </mat-form-field>
     <button (click)="addNote()" mat-raised-button color="primary">Add</button>
+    <button routerLink="/" mat-raised-button color="warn" class="ms-2">
+      Cancel
+    </button>
   </form>
 </div>
